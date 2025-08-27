@@ -33,7 +33,7 @@ const Hero = () => {
               "MERN Stack Enthusiast",
               "Java & DSA Lover",
             ]}
-            loop={0}
+            loop={1}
             cursor
             cursorStyle="_"
             typeSpeed={70}

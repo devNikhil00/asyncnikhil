@@ -21,8 +21,6 @@ function App() {
           <Route path="/skills" element={<Skills />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          {/* Catch all route for GitHub Pages */}
-          <Route path="*" element={<Home />} />
         </Routes>
         <Footer />
       </Router>
