@@ -1,86 +1,89 @@
+
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", to: "/" },
+    { name: "Projects", to: "/projects" },
+    { name: "Skills", to: "/skills" },
+    { name: "About", to: "/about" },
+    { name: "Contact", to: "/contact" },
   ];
 
   return (
-    <div className="relative z-50 mt-2 px-20 mr-5 bg-transparent ml-5 ">
+    <div className="flex justify-center items-center mt-2 px-4">
       {/* Rotating border glow */}
-      <div className="absolute inset-0  rounded-2xl bg-gradient-to-r  blur-sm opacity-60 pointer-events-none" />
+      <div className="absolute inset-0 flex justify-center">
+        <div className="w-full max-w-5xl rounded-2xl bg-gradient-to-r blur-sm opacity-60 pointer-events-none" />
+      </div>
 
-      {/* Glassmorphism Navbar */}
-      <nav className="glass-navbar relative px-2  py-2 sticky top-0 z-50 rounded-2x border backdrop-blur-lg bg-black/30 shadow-md">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <div className="text-xl font-bold text-orange-500">asyncnikhil.in</div>
+      {/* Main Container - Logo, Navbar, Download Button in same line */}
+      <div className="relative z-50 flex items-center justify-between w-full max-w-5xl bg-transparent">
+        {/* Logo */}
+        <div className="text-xl font-bold text-orange-500 ml-1">asyncnikhil.in</div>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex space-x-8 text-sm font-medium text-white">
-            {navLinks.map((link, i) => (
-              <a
-                key={i}
-                href={link.href}
-                className="hover:text-orange-400 transition"
-              >
-                {link.name}
-              </a>
-            ))}
+        {/* Glassmorphism Navbar - Centered */}
+        <nav className="glass-navbar px-5 py-2 sm:px-8 sm:py-2 rounded-md border backdrop-blur-lg bg-black/30 shadow-md">
+          <div className="flex justify-center items-center">
+            {/* Desktop Nav Links */}
+            <div className="hidden md:flex space-x-6 text-sm font-medium text-white">
+              {navLinks.map((link, i) => (
+                <Link
+                  key={i}
+                  to={link.to}
+                  className="hover:text-orange-400 transition px-2 py-1 rounded-md focus:outline-none focus:text-blue-600"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            <div className=" w-full md:hidden flex items-center">
+              <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
+                <span className="text-2xl text-orange-500">
+                  {isOpen ? "✕" : "☰"}
+                </span>
+              </button>
+            </div>
           </div>
 
-          {/* Download Resume with Static Glassy Border Around Button */}
-          <div className="hidden md:block  relative group rounded-md  bg-gradient-to-br  resume-navbar">
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block   text-orange-400 py-1 hover:text-zinc-400 px-3 text-sm border border-orange  hover:border-zinc-600 rounded-sm font-medium transition-all duration-300"
-            >
-              Download Resume
-            </a>
-          </div>
+          {/* Mobile Nav */}
+          {isOpen && (
+            <div className="fixed inset-0 bg-black/80 z-50 flex flex-col items-center justify-center md:hidden transition-all duration-300">
+              <button onClick={() => setIsOpen(false)} className="absolute top-6 right-6 text-3xl text-orange-500 focus:outline-none">✕</button>
+              <div className="space-y-6 text-center">
+                {navLinks.map((link, i) => (
+                  <Link
+                    key={i}
+                    to={link.to}
+                    className="block text-2xl font-semibold hover:text-orange-400 transition"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </nav>
 
-          {/* Mobile Menu Toggle */}
-          <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)}>
-              <span className="text-2xl text-orange-500">
-                {isOpen ? "✕" : "☰"}
-              </span>
-            </button>
-          </div>
+        {/* Download Resume Button */}
+        <div className="w-40  relative group rounded-md bg-gradient-to-br resume-navbar mr-5">
+          <a
+            href="/asyncnikhil/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-orange-400 p-1 hover:text-zinc-400 px-3 text-sm border border-orange-500 hover:border-zinc-600 rounded-sm font-medium transition-all duration-300 text-center"
+          >
+            Download Resume
+          </a>
         </div>
-
-        {/* Mobile Nav */}
-        {isOpen && (
-          <div className="md:hidden mt-4 space-y-4 text-center text-white">
-            {navLinks.map((link, i) => (
-              <a
-                key={i}
-                href={link.href}
-                className="block hover:text-orange-400"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-2 bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-xl"
-            >
-              Download Resume
-            </a>
-          </div>
-        )}
-      </nav>
+      </div>
     </div>
   );
 };

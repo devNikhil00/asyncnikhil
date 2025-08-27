@@ -1,16 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
-import myPhoto from "../assets/nikhil.jpg";
-import StarsBackground from "./StarsBackground"; // Star animation component
+import myPhoto from "../assets/nikhil.jpg"; // Star animation component
 
-const HeroSection = () => {
+const Hero = () => {
   return (
     // <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-10 bg-[#0f0f0f] text-white overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-900/10 via-[#0f0f0f] to-[#0f0f0f]">
       <section className=" relative min-h-screen flex flex-col md:flex-row items-center justify-between px-6 text-white overflow-hidden   bg-transparent
 ">
       {/* 🌌 Animated Star Background */}
-      <StarsBackground />
+    
 
       {/* 🔥 Left Side Content */}
       <motion.div
@@ -84,4 +83,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default Hero;

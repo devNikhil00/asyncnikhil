@@ -1,24 +1,31 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import About from './components/About';
 
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Hero from './pages/Hero';
+import Projects from './pages/Projects';
+import Skills from './pages/Skills';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Footer from './components/Footer';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className=" bg-gradient-to-br from-black via-[#0a0f1a] to-[#111111] min-h-screen text-white">
-      <Navbar />
-      <HeroSection/>
-      <Projects/>
-      <Skills/>
-      <About/>
-      <Contact/>
-      <Footer/>
-      
+    <div className="bg-gradient-to-br from-black via-[#0a0f1a] to-[#111111] min-h-screen text-white">
+      <Router basename="/asyncnikhil">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          {/* Catch all route for GitHub Pages */}
+          <Route path="*" element={<Home />} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }

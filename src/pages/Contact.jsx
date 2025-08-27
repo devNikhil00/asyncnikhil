@@ -12,7 +12,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="px-6 py-20 bg-gradient-to-br from-black via-[#0a0f1c] to-[#0f0f0f] text-white border-t border-[#1e90ff30]"
+      className="px-6 py-20 bg-gradient-to-br from-black via-[#0a0f1c] to-[#0f0f0f] text-white "
     >
       <div className="max-w-6xl mx-auto">
         <p className="text-sm text-orange-500 font-semibold mb-2 text-center">Let’s Connect</p>

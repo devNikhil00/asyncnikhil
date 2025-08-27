@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="px-6 py-20 bg-gradient-to-br border-t border-[#1e90ff30] from-black via-[#0a0f1c] to-[#0f0f0f] text-white"
+      className="px-6 py-20 bg-gradient-to-br  from-black via-[#0a0f1c] to-[#0f0f0f] text-white"
     >
       <div className="max-w-6xl mx-auto text-center">
         {/* 🧑‍💻 Intro */}
@@ -24,13 +24,13 @@ const About = () => {
         <div className="mb-16">
           <h3 className="text-2xl font-semibold text-white mb-4">Tech Stack</h3>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-300">
-            <span className="bg-[#1b1b1a] border border-orange-500/20 px-4 py-2 rounded-full">React</span>
-            <span className="bg-[#1f1f1f] border border-orange-500/20 px-4 py-2 rounded-full">Node.js</span>
-            <span className="bg-[#1f1f1f] border border-orange-500/20 px-4 py-2 rounded-full">Express.js</span>
-            <span className="bg-[#1f1f1f] border border-orange-500/20 px-4 py-2 rounded-full">MongoDB</span>
-            <span className="bg-[#1f1f1f] border border-orange-500/20 px-4 py-2 rounded-full">JavaScript</span>
-            <span className="bg-[#1f1f1f] border border-orange-500/20 px-4 py-2 rounded-full">Tailwind CSS</span>
-            <span className="bg-[#1f1f1f] border border-orange-500/20 px-4 py-2 rounded-full">Git & GitHub</span>
+            <span className=" border border-orange-500/20 px-4 py-2 rounded-full group-hover:text-blue-400 transition-colors duration-300">React</span>
+            <span className=" border border-orange-500/20 px-4 py-2 rounded-full group-hover:text-blue-400 transition-colors duration-300">Node.js</span>
+            <span className=" border border-orange-500/20 px-4 py-2 rounded-full group-hover:text-blue-400 transition-colors duration-300">Express.js</span>
+            <span className=" border border-orange-500/20 px-4 py-2 rounded-full group-hover:text-blue-400 transition-colors duration-300">MongoDB</span>
+            <span className=" border border-orange-500/20 px-4 py-2 rounded-full group-hover:text-blue-400 transition-colors duration-300">JavaScript</span>
+            <span className=" border border-orange-500/20 px-4 py-2 rounded-full group-hover:text-blue-400 transition-colors duration-300">Tailwind CSS</span>
+            <span className=" border border-orange-500/20 px-4 py-2 rounded-full">Git & GitHub</span>
           </div>
         </div>
 

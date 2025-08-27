@@ -47,7 +47,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="px-4 py-20 bg-gradient-to-br from-black via-[#0a0f1c] to-[#0f0f0f] text-white border-t border-[#1e90ff30] "
+      className="px-4 py-20 bg-gradient-to-br from-black via-[#0a0f1c] to-[#0f0f0f] text-white "
     >
       <div className="max-w-6xl mx-auto text-center">
         <p className="text-sm text-orange-500 font-semibold mb-2">Tech Stack</p>

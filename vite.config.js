@@ -6,7 +6,21 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: '/asyncnikhil/',
-    build: {
-    outDir: 'dist', // This is the default output directory
-  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          animations: ['framer-motion']
+        }
+      }
+    }
+  },
+  server: {
+    port: 3000,
+    open: true
+  }
 })
